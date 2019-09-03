@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora HP</title>
+    <style type="text/css">
+        @font-face{
+            font-family: Orbitron;
+            src: url(fonts/Orbitron-Regular.ttf) format('truetype');
+        }
+        #contenedor{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+            min-height: 500px;
+            background-color: grey;
+            border-radius: 10px;
+        }
+        #pantalla{
+            display: flex;
+            flex-direction: column;
+            color:black;
+            background-color: #e8e6e1;
+            margin: 10px;
+            position: relative;
+            top: 10px;
+            min-height: 200px;
+            border-radius: 5px;
+        }
+        #pantallasup{
+            font-family: Orbitron;
+            font-weight: bold;
+            width:100%;
+            background-color: transparent;
+            color: black;
+            text-align: left;
+            height: 1em;
+        }
+        #pantallacentro{
+            font-family: Orbitron;
+            font-weight: bold;
+            font-size:1.2em;
+            width:100%;
+            flex: 1;
+            background-color: transparent;
+            color: black;
+            text-align: right;
+            height: 1em;
+        }
+        #pantallainf{
+            font-family: Orbitron;
+            font-weight: bold;
+            font-size:2em;
+            width:100%;
+            background-color: transparent;
+            color: black;
+            text-align: left;
+            height: 1em; 
+        }
+        .filabotones{
+            display: flex;
+            flex-direction: row;
+            width: 300px;
+            height: 50px;
+/*            border: 1px solid black;*/
+            justify-content: space-around;
+        }
+        .filabotones2,.filaetiquetas{
+            display: flex;
+            flex-direction: row;
+            width: 300px;
+            height: 25px;
+/*            border: 1px solid black;*/
+            justify-content: space-around;
+        }
+        .boton{
+            font-family: Arial, sans-serif;
+            color: white;
+            background-image: linear-gradient(black, grey, black);
+            height: 25px;
+            width:65px;
+            text-align: center;
+            margin-top: 25px;
+            cursor: pointer;
+        }
+        .boton2{
+            font-family: Arial, sans-serif;
+            color: white;
+            background-image: linear-gradient(black, grey, black);
+            height: 25px;
+            width:65px;
+            text-align: center; 
+            cursor: pointer;
+        }
+        .etiqueta{
+            font-family: Arial, sans-serif;
+            color: white;
+            height: 25px;
+            width:65px;
+            text-align: center;
+        }
+        
+    </style>
+    <script type="text/javascript" src="js/calc.js"></script>
+</head>
+<body>
+    <div id="contenedor">
+        <div id="pantalla">
+            <div id="pantallasup"></div> 
+            <div id="pantallacentro"></div>
+            <div id="pantallainf"></div>
+        </div>
+        <div class="filaetiquetas">
+            <div class="etiqueta"> </div>
+            <div class="etiqueta">Clear</div>
+            <div class="etiqueta"> </div>
+            <div class="etiqueta"> </div>
+        </div>
+        <div class="filabotones2">
+            <div class="boton2" id="enter">Enter</div>
+            <div class="boton2" id="del">Del</div>
+            <div class="boton2" id="drop">Drop</div>
+            <div class="boton2" id="swap">Swap</div>
+        </div>
+        <div class="filaetiquetas">
+            <div class="etiqueta">Asin</div>
+            <div class="etiqueta">Acos</div>
+            <div class="etiqueta">Atan</div>
+            <div class="etiqueta"> </div>
+        </div>
+        <div class="filabotones2">
+            <div class="boton2" id="sin">sin</div>
+            <div class="boton2" id="cos">cos</div>
+            <div class="boton2" id="tan">tan</div>
+            <div class="boton2" id="oneoverx">1/x</div>
+        </div>
+        <div class="filaetiquetas">
+            <div class="etiqueta">sqrt</div>
+            <div class="etiqueta">exp</div>
+            <div class="etiqueta">10^x</div>
+            <div class="etiqueta"> </div>
+        </div>
+        <div class="filabotones2">
+            <div class="boton2" id="tworaised">x2</div>
+            <div class="boton2" id="natlog">ln</div>
+            <div class="boton2" id="log">log</div>
+            <div class="boton2" id="xraisedy">x^y</div>
+        </div>
+        <div class="filabotones">
+            <div class="boton" id="n7">7</div>
+            <div class="boton" id="n8">8</div>
+            <div class="boton" id="n9">9</div>
+            <div class="boton" id="div">/</div>
+        </div>
+        <div class="filabotones">
+            <div class="boton" id="n4">4</div>
+            <div class="boton" id="n5">5</div>
+            <div class="boton" id="n6">6</div>
+            <div class="boton" id="mul">*</div>
+        </div>
+        <div class="filabotones">
+            <div class="boton" id="n1">1</div>
+            <div class="boton" id="n2">2</div>
+            <div class="boton" id="n3">3</div>
+            <div class="boton" id="resta">-</div>
+        </div>
+        <div class="filaetiquetas">
+            <div class="etiqueta"></div>
+            <div class="etiqueta">+/-</div>
+            <div class="etiqueta">Pi</div>
+            <div class="etiqueta"></div>
+        </div>
+        <div class="filabotones2">
+            <div class="boton2" id="inv">Inv</div>
+            <div class="boton2" id="n0">0</div>
+            <div class="boton2" id="dot">.</div>
+            <div class="boton2" id="suma">+</div>
+        </div>
+        
+    </div>
+    <audio id="sonido" src=""></audio>
+</body>
+</html>
