@@ -502,3 +502,5 @@ function imprimirPila(){
     document.getElementById("sonido").src="audio/clickfx_click.mp3";
     document.getElementById("sonido").play();
 }
+
+//Esto es un cambio para probar git
